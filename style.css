@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap");
+
+html {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #d4cfd4;
+  color: #564574;
+}
+
+body {
+  width: 1200px;
+  margin: 0 auto 0 auto;
+}
+
+footer {
+  width: 1200px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.block {
+  background-color: #bfb2d7;
+  width: 400px;
+  height: 300px;
+  margin: 30px 0 0 30px;
+  font-size: 25px;
+}
+
+.title {
+  margin: 10px 0 0 15px;
+}
+
+.questions-cnt {
+  margin: 10px 0 0 20px;
+}
+
+.results {
+  margin: 10px 0 0 20px;
+}
+
+.start-test-button {
+  margin: 80px 0 0 130px;
+}
+
+button {
+  background-color: #f5f5f5;
+  width: 250px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 100;
+  color: #564574;
+  border: none;
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.answer-yes {
+ margin: 0;
+  background-color: #b5f0d3;
+  width: 300px;
+  height: 75px;
+  font-size: 30px;
+  font-weight: 900;
+  color: #405a4d;
+  border: none;
+  cursor: pointer;
+}
+
+.answer-no {
+  margin: 0;
+  background-color: #f0c7b5;
+  width: 300px;
+  height: 75px;
+  font-size: 30px;
+  font-weight: 900;
+  color: #635048;
+  border: none;
+  cursor: pointer;
+}
+
+
+.warning{
+  background-color: #c59bc5;
+  margin-bottom: 30px;
+  padding: 10px;
+  color:#4f485a;
+  display:grid;
+  grid-template-columns: 1fr 20fr;
+}
+
+.warning-exclamation-mark{
+  font-weight: bold;
+  font-size: 75px;
+  margin: auto 0 auto 10px;
+}
+
+.warning-text{
+  font-size:20px;
+}
+
+.question-text{
+  font-size: 40px;
+  font-weight:600;
+  margin-bottom: 30px;
+}
+
+.questions-done{
+  font-size: 50px;
+  font-weight: 90px;
+  background-color:#80709b;
+  width: 250px;
+  height: 70px;
+  margin: 50px auto 0 auto;
+  display: flex;
+  justify-content:center;
+}
+
+.answers{
+  display: flex;
+  justify-content: center;
+  gap: 130px;
+  width:1200px;
+}
+
+
+h1{
+  font-size:50px;
+  font-weight: 900;
+  color: #8a638a;
+  margin: 50px 0 30px 0;
+}
+
+.results-test{
+  margin: 5%;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.results-to-lobby{
+  width: 300px;
+  height: 75px;
+  font-size:25px;
+  font-weight:900;
+}
