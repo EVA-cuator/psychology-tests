@@ -28,11 +28,16 @@ function toggleVisibility(inputID) {
   element.classList.toggle("hidden");
 }
 
-function displayResultsText(results_test, results_text, cnt, num_questions) {
+function displayResultsText(
+  results_test,
+  results_text,
+  cnt,
+  num_questions
+) {
   var percents =
     "Результат: " +
     parseFloat(((cnt / num_questions) * 100).toFixed(1)) +
-    "% совпадения.";
+    "%";
   document.getElementById(results_test).innerHTML = percents;
   document.getElementById(results_text).innerHTML = percents;
 }
@@ -136,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("answer-no-epileptoid")
     .addEventListener("click", () => {
-      console.log(cnt_questions_tmp);
+      cnt_questions_tmp++;
       if (cnt_questions_tmp > num_questions_epileptoid) {
         toggleResults("test-epileptoid", "results-epileptoid");
         displayResultsText(
@@ -148,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cnt_questions_tmp = 1;
         cnt_epileptoid = 0;
       }
-      cnt_questions_tmp++;
+
       displayQuestion(
         "question-text-epileptoid",
         questions_epileptoid,
@@ -164,7 +169,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", () => {
       cnt_cyclothymic++;
       cnt_questions_tmp++;
-
+      displayQuestion(
+        "question-text-cyclothymic",
+        questions_cyclothymic,
+        cnt_questions_tmp
+      );
       if (cnt_questions_tmp > num_questions_cyclothymic) {
         toggleResults("test-cyclothymic", "results-cyclothymic");
         displayResultsText(
@@ -176,11 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
         cnt_questions_tmp = 1;
         cnt_cyclothymic = 0;
       }
-      displayQuestion(
-        "question-text-cyclothymic",
-        questions_cyclothymic,
-        cnt_questions_tmp
-      );
       document.getElementById("questions-done-cyclothymic").innerHTML =
         cnt_questions_tmp + "/" + num_questions_cyclothymic;
     });
@@ -216,12 +220,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", () => {
       cnt_asthenic++;
       cnt_questions_tmp++;
-      displayQuestion(
-        "question-text-asthenic",
-        questions_asthenic,
-        cnt_questions_tmp
-      );
-      if (cnt_questions_tmp >= num_questions_asthenic + 1) {
+
+      if (cnt_questions_tmp > num_questions_asthenic) {
         toggleResults("test-asthenic", "results-asthenic");
         displayResultsText(
           "results-test-asthenic",
@@ -232,6 +232,11 @@ document.addEventListener("DOMContentLoaded", () => {
         cnt_questions_tmp = 1;
         cnt_asthenic = 0;
       }
+      displayQuestion(
+        "question-text-asthenic",
+        questions_asthenic,
+        cnt_questions_tmp
+      );
       document.getElementById("questions-done-asthenic").innerHTML =
         cnt_questions_tmp + "/" + num_questions_asthenic;
     });
@@ -240,12 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("answer-no-asthenic")
     .addEventListener("click", () => {
       cnt_questions_tmp++;
-      displayQuestion(
-        "question-text-asthenic",
-        questions_asthenic,
-        cnt_questions_tmp
-      );
-      if (cnt_questions_tmp >= num_questions_asthenic + 1) {
+      if (cnt_questions_tmp > num_questions_asthenic) {
         toggleResults("test-asthenic", "results-asthenic");
         displayResultsText(
           "results-test-asthenic",
@@ -256,6 +256,12 @@ document.addEventListener("DOMContentLoaded", () => {
         cnt_questions_tmp = 1;
         cnt_asthenic = 0;
       }
+
+      displayQuestion(
+        "question-text-asthenic",
+        questions_asthenic,
+        cnt_questions_tmp
+      );
       document.getElementById("questions-done-asthenic").innerHTML =
         cnt_questions_tmp + "/" + num_questions_asthenic;
     });
@@ -266,12 +272,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", () => {
       cnt_shizoid++;
       cnt_questions_tmp++;
-      displayQuestion(
-        "question-text-shizoid",
-        questions_shizoid,
-        cnt_questions_tmp
-      );
-      if (cnt_questions_tmp >= num_questions_shizoid + 1) {
+
+      if (cnt_questions_tmp > num_questions_shizoid) {
         toggleResults("test-shizoid", "results-shizoid");
         displayResultsText(
           "results-test-shizoid",
@@ -282,31 +284,40 @@ document.addEventListener("DOMContentLoaded", () => {
         cnt_questions_tmp = 1;
         cnt_shizoid = 0;
       }
+      displayQuestion(
+        "question-text-shizoid",
+        questions_shizoid,
+        cnt_questions_tmp
+      );
       document.getElementById("questions-done-shizoid").innerHTML =
         cnt_questions_tmp + "/" + num_questions_shizoid;
     });
 
-  document.getElementById("answer-no-shizoid").addEventListener("click", () => {
-    cnt_questions_tmp++;
-    displayQuestion(
-      "question-text-shizoid",
-      questions_shizoid,
-      cnt_questions_tmp
-    );
-    if (cnt_questions_tmp >= num_questions_shizoid + 1) {
-      toggleResults("test-shizoid", "results-shizoid");
-      displayResultsText(
-        "results-test-shizoid",
-        "results-text-shizoid",
-        cnt_shizoid,
-        num_questions_shizoid
+  document
+    .getElementById("answer-no-shizoid")
+    .addEventListener("click", () => {
+      cnt_questions_tmp++;
+      console.log(cnt_questions_tmp);
+      if (cnt_questions_tmp > num_questions_shizoid) {
+        toggleResults("test-shizoid", "results-shizoid");
+        displayResultsText(
+          "results-test-shizoid",
+          "results-text-shizoid",
+          cnt_shizoid,
+          num_questions_shizoid
+        );
+        cnt_questions_tmp = 1;
+        cnt_shizoid = 0;
+      }
+
+      displayQuestion(
+        "question-text-shizoid",
+        questions_shizoid,
+        cnt_questions_tmp
       );
-      cnt_questions_tmp = 1;
-      cnt_shizoid = 0;
-    }
-    document.getElementById("questions-done-shizoid").innerHTML =
-      cnt_questions_tmp + "/" + num_questions_shizoid;
-  });
+      document.getElementById("questions-done-shizoid").innerHTML =
+        cnt_questions_tmp + "/" + num_questions_shizoid;
+    });
 
   var cnt_isteroid = 0;
   document
@@ -314,12 +325,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", () => {
       cnt_isteroid++;
       cnt_questions_tmp++;
-      displayQuestion(
-        "question-text-isteroid",
-        questions_isteroid,
-        cnt_questions_tmp
-      );
-      if (cnt_questions_tmp >= num_questions_isteroid + 1) {
+
+      if (cnt_questions_tmp > num_questions_isteroid) {
         toggleResults("test-isteroid", "results-isteroid");
         displayResultsText(
           "results-test-isteroid",
@@ -330,6 +337,11 @@ document.addEventListener("DOMContentLoaded", () => {
         cnt_questions_tmp = 1;
         cnt_isteroid = 0;
       }
+      displayQuestion(
+        "question-text-isteroid",
+        questions_isteroid,
+        cnt_questions_tmp
+      );
       document.getElementById("questions-done-isteroid").innerHTML =
         cnt_questions_tmp + "/" + num_questions_isteroid;
     });
@@ -338,12 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("answer-no-isteroid")
     .addEventListener("click", () => {
       cnt_questions_tmp++;
-      displayQuestion(
-        "question-text-isteroid",
-        questions_isteroid,
-        cnt_questions_tmp
-      );
-      if (cnt_questions_tmp >= num_questions_isteroid + 1) {
+      if (cnt_questions_tmp > num_questions_isteroid) {
         toggleResults("test-isteroid", "results-isteroid");
         displayResultsText(
           "results-test-isteroid",
@@ -354,6 +361,12 @@ document.addEventListener("DOMContentLoaded", () => {
         cnt_questions_tmp = 1;
         cnt_isteroid = 0;
       }
+
+      displayQuestion(
+        "question-text-isteroid",
+        questions_isteroid,
+        cnt_questions_tmp
+      );
       document.getElementById("questions-done-isteroid").innerHTML =
         cnt_questions_tmp + "/" + num_questions_isteroid;
     });
