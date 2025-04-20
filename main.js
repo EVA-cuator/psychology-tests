@@ -9,7 +9,7 @@ import {
   questions_asthenic,
   questions_isteroid,
   questions_shizoid,
-} from "/const.js";
+} from "./const.js";
 
 /* F U N C T I O N S */
 
